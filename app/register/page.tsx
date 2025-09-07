@@ -1,6 +1,10 @@
 "use client";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import AuthButtons from "@/app/components/AuthButtons"
+
+
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -38,6 +42,7 @@ function RegisterPage() {
       router.push("/login");
     } catch (error) {
       console.error(error);
+      alert("REGISTRATION FAILED")
     }
   };
 
@@ -65,13 +70,27 @@ function RegisterPage() {
         />
         <button type="submit">Register</button>
       </form>
+
+      
+
+
+
       <div>
         <p>
           Already have an account? <a href="/login">Login</a>
         </p>
       </div>
+
+      <AuthButtons  />
+
+
+      
+
+
+
     </div>
   );
+
 }
 
 export default RegisterPage;

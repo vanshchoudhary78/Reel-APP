@@ -3,6 +3,8 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+import AuthButtons from "@/app/components/AuthButtons"
+
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +21,7 @@ function LoginPage() {
 
     if (result?.error) {
       console.log(result.error);
+      alert("USER NOT REGISTERED")
     } else {
       router.push("/");
     }
@@ -44,6 +47,12 @@ function LoginPage() {
         Don't have an account ?
         <button onClick={() => router.push("/register")}>Register</button>
       </div>
+
+
+
+      <AuthButtons  />
+
+
     </div>
   );
 }

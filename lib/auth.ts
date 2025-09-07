@@ -3,6 +3,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDatabase } from "./db";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+// google 
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -44,6 +46,21 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
+
+    // google login 
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+
+    })
+
+
+
+
+
+
+
   ],
   callbacks: {
     async jwt({ token, user }) {

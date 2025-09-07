@@ -16,6 +16,7 @@ export default function Home() {
         setVideos(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("Error fetching videos:", error);
+        alert("something went Wrong!")
       }
     };
 
